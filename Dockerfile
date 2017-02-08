@@ -22,10 +22,11 @@ RUN apk add --update curl bash git openssh-client nano nginx ca-certificates \
     # Install php7
     # - These repositories are in 'testing' repositories but it's much more stable/easier than compiling our own php.
     ##
-    apk add --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing/ \
+    apk upgrade -U \
+    && apk add --update-cache --repository=http://dl-4.alpinelinux.org/alpine/edge/testing/ \
     php7-pdo_mysql php7-mysqli php7-mysqlnd php7-mcrypt \
     php7 php7-session php7-fpm php7-json php7-zlib php7-xml php7-pdo \
-    php7-gd php7-curl php7-opcache php7-ctype php7-mbstring php7-soap \
+    php7-gd php7-curl php7-opcache php7-ctype php7-mbstring php7-soap php7-pdo_sqlite \
     php7-intl php7-bcmath php7-dom php7-xmlreader php7-openssl php7-phar php7-redis php7-mongodb  && \
 
     # Small fixes to php & nginx
